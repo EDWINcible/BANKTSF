@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS `BankTSF`;
+USE `BankTSF`;
+
+CREATE TABLE IF NOT EXISTS `customers`(
+	`id` int(9) NOT NULL,
+  	`name` varchar(50) NOT NULL,
+  	`email` varchar(50) NOT NULL,
+    `curr_bal` float(10) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+insert into customers values(1,'Edwin Vincent','edwinvincent.evt@gmail.com',1000);
+insert into customers values(2,'Shivoham Angal','dangal@gmail.com',1000);
+insert into customers values(3,'Yash Pratapwar','pratap@gmail.com',1000);
+insert into customers values(4,'Trvor Dcosta','toad@gmail.com',1000);
+insert into customers values(5,'Christopher John','christu@gmail.com',1000);
+insert into customers values(6,'Pratik Dhumal','pratiksir@gmail.com',1000);
+insert into customers values(7,'Shreyas K.V.','paavi@gmail.com',1000);
+insert into customers values(8,'Karthik Rajumon','katy@gmail.com',1000);
+insert into customers values(9,'Vivin Vincent','vivin@gmail.com',1000);
+insert into customers values(10,'Ashin Sunny','ashley@gmail.com',1000);
+
+select * from customers;
+
+CREATE TABLE IF NOT EXISTS `transactions`(
+	`sname` varchar(50) NOT NULL,
+  	`rname` varchar(50) NOT NULL,
+  	`amount` int(10) NOT NULL,
+    `time` timestamp not null DEFAULT CURRENT_TIMESTAMP
+);
+Insert into transactions(sname,rname,amount) Values('Edwin Vincent','Shivoham Angal',50);
+select * from transactions;
+
+
+

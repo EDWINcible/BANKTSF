@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>homepage</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bowlby+One">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets/bootstrap/css/button.css">
+</head>
+
+<body style="background-color: rgb(255,255,255);">
+    <header></header>
+    <nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav" style="background-color: #d59823;">
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#" style="font-size: 28px;">Customers list</a>
+            <a href="/"><button
+                class="btn btn-dark pulse animated" type="button" style="font-family: 'Bowlby One', cursive;">HOME </button></a><button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button></div>
+    </nav>
+    <div class="table-responsive" style="margin-top: 150px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Balance</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+            
+                <form method="POST" action="/profile">
+                
+                <tr>
+                    <td name="cid" data-bs-hover-animate="pulse">{{item.id}}</td>
+                    
+                    <td name="cname" data-bs-hover-animate="pulse">{{item.name}}</td>
+                    
+                    <td name="cemail" data-bs-hover-animate="pulse">{{item.email}}</td>
+                    
+                    <td name="cbal" data-bs-hover-animate="pulse">{{item.curr_bal}}</td>
+                    
+                    <!--<td data-bs-hover-animate="pulse"><button class="btn btn-primary" data-bs-hover-animate="pulse" type="submit" href="{{url_for('prof')}}" style="margin-left: 0px;margin-right: -100px;">Transfer Money</button></td>-->
+                    <td>
+                        <input type="hidden" name="cid" value="{{item.id}}"/>
+                        <input type="hidden" name="cname" value="{{item.name}}"/>
+                        <input type="hidden" name="cemail" value="{{item.email}}"/>
+                        <input type="hidden" name="cbal" value="{{item.curr_bal}}"/>
+                        <input type="submit" value="Transfer Money" class="btnAddAction"/>
+                    </td>
+                </tr>
+                
+            </form>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="static/assets/js/grayscale.js"></script>
+</body>
+
+</html>
