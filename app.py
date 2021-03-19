@@ -121,5 +121,4 @@ def tp():
     return render_template('transact.html', value=cdata)    
 '''
 
-if __name__=="__main__":
-    app.run(debug=True);  
+ 
