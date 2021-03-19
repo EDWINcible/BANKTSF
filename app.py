@@ -14,7 +14,7 @@ app.config['MYSQL_DB'] = 'sql6399998'
 
 mysql = MySQL(app)
 
-@app.route("/bankhome")
+@app.route("/")
 def home():
     return render_template('index.html')
 
